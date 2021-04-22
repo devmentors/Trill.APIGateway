@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.ReverseProxy.Service.Proxy.Infrastructure;
+using Yarp.ReverseProxy.Service.Proxy.Infrastructure;
 
 namespace Trill.APIGateway.Framework
 {
@@ -51,7 +51,7 @@ namespace Trill.APIGateway.Framework
                 handler.MaxConnectionsPerServer = newClientOptions.MaxConnectionsPerServer.Value;
             }
 
-            if (newClientOptions.DangerousAcceptAnyServerCertificate)
+            if (newClientOptions.DangerousAcceptAnyServerCertificate is true)
             {
                 handler.SslOptions.RemoteCertificateValidationCallback =
                     (sender, cert, chain, errors) => cert.Subject == "trill.io";

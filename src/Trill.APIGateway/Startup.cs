@@ -13,8 +13,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.ReverseProxy.Service.Proxy.Infrastructure;
 using Trill.APIGateway.Framework;
+using Yarp.ReverseProxy.Service.Proxy.Infrastructure;
 
 namespace Trill.APIGateway
 {

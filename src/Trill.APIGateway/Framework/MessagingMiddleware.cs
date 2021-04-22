@@ -15,9 +15,7 @@ namespace Trill.APIGateway.Framework
 {
     internal class MessagingMiddleware : IMiddleware
     {
-        private static readonly ConcurrentDictionary<string, IConventions> Conventions =
-            new ConcurrentDictionary<string, IConventions>();
-
+        private static readonly ConcurrentDictionary<string, IConventions> Conventions = new();
         private readonly IRabbitMqClient _rabbitMqClient;
         private readonly RouteMatcher _routeMatcher;
         private readonly ITracer _tracer;
