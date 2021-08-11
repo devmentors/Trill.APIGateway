@@ -1,6 +1,7 @@
 using Convey;
 using Convey.Auth;
 using Convey.MessageBrokers.RabbitMQ;
+using Convey.MessageBrokers.RabbitMQ.Serializers;
 using Convey.Metrics.Prometheus;
 using Convey.Security;
 using Convey.Tracing.Jaeger;
@@ -45,7 +46,8 @@ namespace Trill.APIGateway
                 .AddJaeger()
                 .AddJwt()
                 .AddPrometheus()
-                .AddRabbitMq(plugins: p => p.AddJaegerRabbitMqPlugin())
+                .AddRabbitMq(plugins: p => p.AddJaegerRabbitMqPlugin(),
+                    serializer: new NewtonsoftJsonRabbitMqSerializer())
                 .AddSecurity()
                 .AddWebApi()
                 .Build();
